@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login.component';
+import { FeatureComponent } from './feature.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [LoginComponent],
+  declarations: [FeatureComponent],
   exports: [
-  LoginComponent
-]
+    FeatureComponent
+  ]
 })
-export class LoginModule { }
+export class FeatureModule { }
