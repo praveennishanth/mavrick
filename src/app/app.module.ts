@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { LoginModule } from './login/login.module';
+import { FeatureRoutingModule } from './feature/feature-routing.module'
 import { FeatureModule } from './feature/feature.module';
 
 import { AppComponent } from './app.component';
@@ -16,9 +16,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    LoginModule,
-    FeatureModule
+    FeatureModule,
+    FeatureRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
