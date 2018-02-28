@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     CommonModule
   ],
-  declarations: [RegisterComponent]
+  declarations: [RegisterComponent],
+  exports:[RegisterComponent]
 })
 export class RegisterModule { }

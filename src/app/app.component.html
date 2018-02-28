@@ -1,10 +1,13 @@
-<app-header></app-header>
-<div class="container-fluid">
-    <div class="row">
-        <app-sidebar></app-sidebar>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <router-outlet></router-outlet>
-        </main>
-    </div>
+<div >
+        <app-header *ngIf="router.url !=  '/' && router.url != '/login' && router.url != '/register'"></app-header>
+        <div class="container-fluid">
+            <div class="row">
+                <app-sidebar *ngIf="router.url !=  '/' && router.url != '/login' && router.url != '/register'"></app-sidebar>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <router-outlet></router-outlet>
+                </main>
+            </div>
+        </div>
+        <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
+

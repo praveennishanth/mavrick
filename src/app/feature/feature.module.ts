@@ -14,6 +14,7 @@ import { ProductModule } from './product/product.module';
 import { ProductComponent } from './product/product/product.component';
 
 import { FeatureRoutingModule } from './feature-routing.module'
+import { RegisterComponent } from './register/register/register.component'
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FeatureRoutingModule } from './feature-routing.module'
     FooterComponent,
     SidebarComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    RegisterComponent
   ],
   exports: [
     HeaderComponent, 
