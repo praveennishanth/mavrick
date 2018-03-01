@@ -24,8 +24,11 @@ export class CoreService {
   }
 
   getUserDetails() {
-    // this.setHeader('content-type', 'application/json; charset=utf-8')
     return this.http.get(this.configUrl, this.httpOptions);
+  }
+
+  authenticate(credentials){
+    return credentials.name == "admin" && credentials.password == "admin" ? true :false;
   }
 
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule } from '@angular/router';
 import { CoreModule } from '../../core/core.module';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 @NgModule({
@@ -11,7 +12,7 @@ import { CoreModule } from '../../core/core.module';
     RouterModule,
     CoreModule
   ],
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, LoginFormComponent],
   exports: [
   LoginComponent
 ]
