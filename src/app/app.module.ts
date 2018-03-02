@@ -22,6 +22,7 @@ import { CoreService } from './core/core.service'
     FeatureModule,
     FeatureRoutingModule,
     AppRoutingModule
+    
   ],
   providers: [ProductService, CoreService, HttpClientModule],
   bootstrap: [AppComponent]
