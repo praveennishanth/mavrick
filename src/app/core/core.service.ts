@@ -28,7 +28,7 @@ export class CoreService {
   }
 
   authenticate(credentials){
-    return credentials.name == "admin" && credentials.password == "admin" ? true :false;
+    return credentials.username == "admin" && credentials.password == "admin" ? "Valid" :"Invalid";
   }
 
 }

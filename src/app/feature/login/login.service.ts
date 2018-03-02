@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { } from '../../core/core.service'
+import { CoreService } from '../../core/core.service'
+import { CoreModule } from '../../core/core.module';
 
 @Injectable()
 export class LoginService {
+  constructor(private coreService: CoreService ) { }
 
-  constructor() { }
-
+  auth(data:any){
+    return this.coreService.authenticate(data);
+  }
 }
