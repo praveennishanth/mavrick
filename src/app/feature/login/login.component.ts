@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { LoginService } from './login.service'
 
@@ -12,26 +11,19 @@ export class LoginComponent implements OnInit {
   public isLoggedin: any;
   public loginValue: any;
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private loginService: LoginService 
+    private loginService: LoginService
   ) {
     //loginService.auth = this.authenticate.bind(this);
   }
 
   ngOnInit() {
+    this.isLoggedin = false;
   }
 
-  signIn(){
-      this.router.navigate(['/home']);
-  }
-  
 
-  authenticate(data){
-    this.loginValue=data;
-    console.log(this.loginValue);
-    //this.isLoggedin = this.loginService.auth(data);
+  authenticate(data) {
+    this.isLoggedin = this.loginService.authenticate(data);
     
   }
-  
+
 }

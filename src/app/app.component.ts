@@ -11,7 +11,7 @@ export class AppComponent {
   private router: any;
   constructor(private _router:Router){
     this.router=_router;
-    console.log(this.router.url)
+    // console.log(this.router.url)
   }
   ngOnInit(){
 
