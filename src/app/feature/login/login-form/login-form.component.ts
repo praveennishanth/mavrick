@@ -60,7 +60,7 @@ export class LoginFormComponent implements OnInit {
     },
   };
 
-  autenticate(){
+  authenticate(){
     this.event.emit(this.loginForm.value);
   }
 }

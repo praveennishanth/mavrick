@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private loginService: LoginService 
   ) {
-    loginService.auth = this.autenticate.bind(this);
+    //loginService.auth = this.authenticate.bind(this);
   }
 
   ngOnInit() {
@@ -25,16 +25,13 @@ export class LoginComponent implements OnInit {
   signIn(){
       this.router.navigate(['/home']);
   }
+  
 
-  autenticate(data){
+  authenticate(data){
     this.loginValue=data;
-    //console.log(this.loginValue);
-    this.isLoggedin = this.loginService.auth(data);
-    // .subscribe(data => {
-    //   this.isLoggedin = data;
-    //   console.log(data);
-    // });
-    // this.isLoggedin ? this.signIn():console.log("Invalid Cred");
+    console.log(this.loginValue);
+    //this.isLoggedin = this.loginService.auth(data);
+    
   }
   
 }
