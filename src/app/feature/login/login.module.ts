@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService} from './login.service'
 import { LoginFormComponent } from './login-form/login-form.component';
 import { CoreService } from '../../core/core.service'
+import { StorageService } from '../../core/storage.service'
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { CoreService } from '../../core/core.service'
     ReactiveFormsModule
   ],
   declarations: [LoginComponent, LoginFormComponent],
-  providers:[LoginService, CoreService],
+  providers:[LoginService, CoreService, StorageService],
   exports: [
   LoginComponent
 ]
