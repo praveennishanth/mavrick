@@ -19,6 +19,6 @@ import { LoginFormComponent } from './login-form/login-form.component';
     LoginFormComponent
   ],
   providers:[LoginService],
-  exports: []
+  exports: [LoginComponent]
 })
 export class LoginModule { }
