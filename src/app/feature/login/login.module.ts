@@ -2,7 +2,6 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule } from '@angular/router';
-import { CoreModule } from '../../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService} from './login.service'
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -12,7 +11,6 @@ import { LoginFormComponent } from './login-form/login-form.component';
   imports: [
     CommonModule,
     RouterModule,
-    CoreModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -21,14 +19,6 @@ import { LoginFormComponent } from './login-form/login-form.component';
     LoginFormComponent
   ],
   providers:[LoginService],
-  exports: [LoginComponent]
+  exports: []
 })
-export class LoginModule { 
-  public static forRoot():ModuleWithProviders{
-    return {
-      ngModule:LoginModule,
-      providers: [
-        LoginService
-      ]}
-  }
-}
+export class LoginModule { }

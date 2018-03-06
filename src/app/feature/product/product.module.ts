@@ -11,12 +11,4 @@ import { ProductService } from './product/product.service'
   providers: [ProductService],
   declarations: [ProductComponent]
 })
-export class ProductModule { 
-  public static forRoot():ModuleWithProviders{
-    return {
-      ngModule:ProductModule,
-      providers: [
-        ProductService
-      ]}
-  }
-}
+export class ProductModule {}
