@@ -6,7 +6,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Maverick';
 
   private router: any;
   constructor(private _router:Router){

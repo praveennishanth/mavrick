@@ -20,7 +20,6 @@ export class GuardService {
   }
 
   isLoggedIn() {
-    console.log(this.storage.getString("isLoggedIn"),"this.isLoggedIn Get Call")
     return this.storage.getString("isLoggedIn");
   }
 }

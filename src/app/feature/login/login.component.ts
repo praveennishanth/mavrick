@@ -10,20 +10,12 @@ import { LoginService } from './login.service'
 export class LoginComponent implements OnInit {
   public isLoggedin: any;
   public loginValue: any;
-  constructor(
-    private loginService: LoginService
-  ) {
-    //loginService.auth = this.authenticate.bind(this);
-  }
-
+  constructor(private loginService: LoginService) { }
   ngOnInit() {
     this.isLoggedin = false;
   }
-
-
   authenticate(data) {
     this.isLoggedin = this.loginService.authenticate(data);
-    
   }
 
 }

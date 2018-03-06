@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { RouterModule } from '@angular/router';
@@ -6,8 +6,6 @@ import { CoreModule } from '../../core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService} from './login.service'
 import { LoginFormComponent } from './login-form/login-form.component';
-import { CoreService } from '../../core/core.service'
-import { StorageService } from '../../core/storage.service'
 
 
 @NgModule({
@@ -18,10 +16,19 @@ import { StorageService } from '../../core/storage.service'
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent, LoginFormComponent],
-  providers:[LoginService, CoreService, StorageService],
-  exports: [
-  LoginComponent
-]
+  declarations: [
+    LoginComponent, 
+    LoginFormComponent
+  ],
+  providers:[LoginService],
+  exports: [LoginComponent]
 })
-export class LoginModule { }
+export class LoginModule { 
+  public static forRoot():ModuleWithProviders{
+    return {
+      ngModule:LoginModule,
+      providers: [
+        LoginService
+      ]}
+  }
+}

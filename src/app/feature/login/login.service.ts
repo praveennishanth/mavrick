@@ -7,10 +7,13 @@ import { StorageService } from '../../core/storage.service'
 
 @Injectable()
 export class LoginService {
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private coreService: CoreService,
-    private storageService: StorageService) { }
+    private storageService: StorageService
+  ) { }
+
   private isLoggedin: boolean;
   authenticate(data) {
     //Authenticate and redirect

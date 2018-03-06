@@ -1,13 +1,29 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http'
 import { CommonModule } from '@angular/common';
+import { CoreService } from './core.service'
+import { GuardService } from './guard.service'
+import { StorageService} from './storage.service'
 
 
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   declarations: [],
   
 })
-export class CoreModule { }
+export class CoreModule {
+
+  public static forRoot():ModuleWithProviders{
+    return {
+      ngModule:CoreModule,
+      providers: [
+        CoreService, 
+        GuardService, 
+        StorageService
+      ]}
+  }
+ }

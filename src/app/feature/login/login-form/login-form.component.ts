@@ -46,6 +46,8 @@ export class LoginFormComponent implements OnInit {
       }
     }
   }
+
+  //Validation
   formErrors = {
     'username': '',
     'password': ''
