@@ -58,7 +58,13 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+
+  // it(`should have as title 'false'`, async(() => {
+  //   const fixture = TestBed.createComponent(LoginComponent);
+  //   const app = fixture.debugElement.componentInstance;
+  //   expect(app.isLoggedin).toEqual(false);
+  // }));
 });
