@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { LoginFormComponent } from './login-form.component';
 
@@ -8,7 +9,13 @@ describe('LoginFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginFormComponent ]
+      imports:[
+        FormsModule,
+        ReactiveFormsModule
+      ],
+      declarations: [ 
+        LoginFormComponent,
+       ]
     })
     .compileComponents();
   }));
@@ -21,5 +28,8 @@ describe('LoginFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('form invalid when empty', () => {
+    expect(component.loginForm.valid).toBeFalsy();
   });
 });

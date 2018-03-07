@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductComponent } from './product.component';
+import { ProductService } from './product.service';
+import { CoreService } from '../../../core/core.service'
+import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('ProductComponent', () => {
   let component: ProductComponent;
@@ -8,7 +12,9 @@ describe('ProductComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductComponent ]
+      imports:[HttpClientModule, HttpClientTestingModule],
+      declarations: [ ProductComponent ],
+      providers:[ProductService, CoreService, HttpClient]
     })
     .compileComponents();
   }));
