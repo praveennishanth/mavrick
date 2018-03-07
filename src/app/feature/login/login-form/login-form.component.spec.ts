@@ -4,23 +4,23 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { LoginFormComponent } from './login-form.component';
 import { DebugElement } from '@angular/core/src/debug/debug_node';
+import { FormBuilder } from '@angular/forms';
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
   let fixture: ComponentFixture<LoginFormComponent>;
-  let de: DebugElement;
-  let el: HTMLElement; 
+ 
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports:[
-        BrowserModule,
         FormsModule,
         ReactiveFormsModule
       ],
       declarations: [ 
         LoginFormComponent,
-       ]
+       ],
+       providers:[FormBuilder]
     })
     .compileComponents();
   }));
@@ -29,9 +29,7 @@ describe('LoginFormComponent', () => {
     fixture = TestBed.createComponent(LoginFormComponent);
     
     component = fixture.componentInstance;
-    
-    de = fixture.debugElement.query(By.css("form"));
-    el = de.nativeElement;
+    fixture.detectChanges();
     
   });
 
@@ -47,17 +45,18 @@ describe('LoginFormComponent', () => {
     expect(component.onSubmit).toBeTruthy();
   }));
 
-  // it(`form should be invalid`, async(() => {
-  //   component.loginForm.controls['username'].setValue('');
-  //   component.loginForm.controls['password'].setValue('');
-  //   expect(component.loginForm.valid).toBeTruthy();
-  // }));
+  it(`form should be invalid`, async(() => {
+    component.loginForm.controls['username'].setValue('');
+    component.loginForm.controls['password'].setValue('');
+    expect(component.loginForm.valid).toBeFalsy();
+  }));
 
-  // it(`form should be valid`, async(() => {
-  //   component.loginForm.controls['username'].setValue('asd@asd.com');
-  //   component.loginForm.controls['password'].setValue('aada');
-  //   expect(component.loginForm.valid).toBeFalsy();
-  // }));
+  it(`form should be valid`, async(() => {
+    // expect(component.loginForm.invalid).toBeFalsy();
+    component.loginForm.controls['username'].setValue('asd@asd.com');
+    component.loginForm.controls['password'].setValue('aada');
+    expect(component.loginForm.valid).toBeTruthy();
+  }));
 
   
 });

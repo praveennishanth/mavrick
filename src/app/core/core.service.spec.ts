@@ -11,6 +11,7 @@ describe('CoreService', () => {
   let service:CoreService;
   
   let credentials = {username:"admin",password:"admin"}
+  let InvalidCredentials = {username:"",password:""}
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -33,11 +34,14 @@ describe('CoreService', () => {
   it('Should call authenticate method', inject([CoreService], (service: CoreService) => {
     expect(service.authenticate).toBeTruthy();
   }));
-  it('Should call authenticate method', inject([CoreService], (service: CoreService) => {
+  it('Should call getUserDetails method', inject([CoreService], (service: CoreService) => {
     expect(service.getUserDetails).toBeTruthy();
   }));
 
   it('Should suceeded Authentication ', inject([CoreService], (service: CoreService) => {
     expect(service.authenticate(credentials)).toBe(true);
+  }));
+  it('Should fail Authentication ', inject([CoreService], (service: CoreService) => {
+    expect(service.authenticate(InvalidCredentials)).toBe(false);
   }));
 });
