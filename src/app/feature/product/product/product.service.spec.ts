@@ -14,4 +14,7 @@ describe('ProductService', () => {
   it('should be created', inject([ProductService], (service: ProductService) => {
     expect(service).toBeTruthy();
   }));
+  it ('should call the setUserDetails method', inject([ProductService], (service: ProductService)=>{
+    expect(service.setUserDetails).toBeTruthy();
+  }));
 });

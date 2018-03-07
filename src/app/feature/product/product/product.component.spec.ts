@@ -28,4 +28,13 @@ describe('ProductComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Should call method initializeUserData',()=>{
+    expect(component.initializeUserData).toBeTruthy();
+  });
+
+  it('Should call method  ngOnInit',()=>{
+    expect(component.ngOnInit).toBeTruthy();
+  });
+
 });

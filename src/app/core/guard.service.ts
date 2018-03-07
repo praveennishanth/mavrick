@@ -6,6 +6,7 @@ export class GuardService {
 
   constructor(
     public storage: StorageService) { }
+  
   canActivate(): boolean {
     if (!this.isLoggedIn()) {
       return false;

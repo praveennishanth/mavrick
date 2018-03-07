@@ -27,7 +27,7 @@ export class LoginService {
     this.router.navigate(['/home']);
   }
   invalidUser() {
-    console.log("Invalid User", this.isLoggedin);
+    alert("Invalid User");
   }
 
 }

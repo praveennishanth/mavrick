@@ -8,6 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
+  credentials = {
+    username:'',
+    password:''
+  }
 
   @Output()event:EventEmitter<object> = new EventEmitter();
 
@@ -19,8 +23,14 @@ export class LoginFormComponent implements OnInit {
 
   buildForm() {
     this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
+      'username': new FormControl(this.credentials.username, [
+        Validators.required,
+        Validators.minLength(4)
+    ]),
+      'password': new FormControl(this.credentials.password, [
+        Validators.required,
+        Validators.minLength(4)
+      ])
     });
 
     this.loginForm.valueChanges
@@ -54,15 +64,17 @@ export class LoginFormComponent implements OnInit {
   };
   validationMessages = {
     'username': {
-      'required': "Username is required!"
+      'required': "Username is required!",
+      'minlength': 'Minimum 4 Char is required'
     },
     'password': {
-      'required': 'Password is required!'
+      'required': 'Password is required!',
+      'minlength': 'Minimum 4 Char is required'
 
     },
   };
 
-  authenticate(){
+  onSubmit(){
     this.event.emit(this.loginForm.value);
   }
 }

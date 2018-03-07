@@ -9,8 +9,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 describe('CoreService', () => {
   let service:CoreService;
-  let credentials : any;
-  credentials = {username:"admin",password:"admin"}
+  
+  let credentials = {username:"admin",password:"admin"}
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -30,11 +30,14 @@ describe('CoreService', () => {
     expect(service).toBeTruthy();
   }));
   
-  // it('#getValue should return array of users', () => {
-  //   expect(service.getUserDetails).toBe('real value');
-  // });
+  it('Should call authenticate method', inject([CoreService], (service: CoreService) => {
+    expect(service.authenticate).toBeTruthy();
+  }));
+  it('Should call authenticate method', inject([CoreService], (service: CoreService) => {
+    expect(service.getUserDetails).toBeTruthy();
+  }));
 
-  // it('#getValue should return true', () => {
-  //   expect(service.authenticate(credentials)).toBe(true);
-  // });
+  it('Should suceeded Authentication ', inject([CoreService], (service: CoreService) => {
+    expect(service.authenticate(credentials)).toBe(true);
+  }));
 });

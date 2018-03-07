@@ -39,4 +39,13 @@ describe('LoginService', () => {
   it('should be created', inject([LoginService], (service: LoginService) => {
     expect(service).toBeTruthy();
   }));
+  it ('should call the signIn method', inject([LoginService], (service: LoginService)=>{
+    expect(service.signIn).toBeTruthy();
+  }));
+  it ('should call the authenticate method', inject([LoginService], (service: LoginService)=>{
+    expect(service.authenticate).toBeTruthy();
+  }));
+  it ('should call the invalidUser method', inject([LoginService], (service: LoginService)=>{
+    expect(service.invalidUser).toBeTruthy();
+  }));
 });
