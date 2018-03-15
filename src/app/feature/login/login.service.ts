@@ -18,12 +18,12 @@ export class LoginService {
   authenticate(data) {
     //Authenticate and redirect
     this.isLoggedin = this.coreService.authenticate(data);
-    this.storageService.setString("isLoggedIn", this.isLoggedin)
-    this.isLoggedin ? this.signIn() : this.invalidUser;
+    this.storageService.setString("isLoggedIn", this.isLoggedin);
+    this.isLoggedin ? this.signIn() : this.invalidUser();
 
   }
 
-  signIn() {
+  signIn() { 
     this.router.navigate(['/home']);
   }
   invalidUser() {

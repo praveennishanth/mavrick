@@ -17,11 +17,6 @@ export class StorageService {
   clear(){
     localStorage.clear();
   }
-  setObject(key,value){
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-  getObject(key){
-    return JSON.parse(localStorage.getItem(key));
-  }
+ 
 }
 

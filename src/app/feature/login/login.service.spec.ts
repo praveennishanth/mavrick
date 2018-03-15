@@ -3,8 +3,9 @@ import { TestBed, inject } from '@angular/core/testing';
 import { LoginService } from './login.service';
 import { CoreService } from '../../core/core.service'
 import { StorageService } from '../../core/storage.service'
-import { RouterModule, Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { RouterModule, Router,Routes, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClientModule,HttpClient, HttpHandler } from '@angular/common/http';
+import { HomeComponent } from '../home/home/home.component'
 const fakeActivatedRoute = {
   snapshot: { url: [
     {
@@ -16,14 +17,20 @@ const fakeActivatedRoute = {
 ], }
 } as ActivatedRoute;
 
+
+
 class MockRouter {
   navigate = jasmine.createSpy('home');
 }
 describe('LoginService', () => {
+  let component: HomeComponent;
+  let router: Router;
+  let spy:any;
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports:[
-        HttpClientModule],
+        HttpClientModule
+      ],
       providers: [
         LoginService, 
         {provide: ActivatedRoute, useValue: fakeActivatedRoute},
@@ -34,18 +41,25 @@ describe('LoginService', () => {
        
       ]
     });
+
   });
 
   it('should be created', inject([LoginService], (service: LoginService) => {
     expect(service).toBeTruthy();
   }));
   it ('should call the signIn method', inject([LoginService], (service: LoginService)=>{
-    expect(service.signIn).toBeTruthy();
+    expect(service.signIn()).toBe(undefined);
   }));
-  it ('should call the authenticate method', inject([LoginService], (service: LoginService)=>{
-    expect(service.authenticate).toBeTruthy();
+  it ('the authenticate method should pass', inject([LoginService], (service: LoginService)=>{
+    expect(service.authenticate({username:'admin',password:'admin'})).toBe(undefined);
   }));
+
+  it ('the authenticate method should fail', inject([LoginService], (service: LoginService)=>{
+    expect(service.authenticate({username:'',password:''})).toBe(undefined);
+  }));
+
   it ('should call the invalidUser method', inject([LoginService], (service: LoginService)=>{
-    expect(service.invalidUser).toBeTruthy();
+    expect(service.invalidUser()).toBe(undefined);
   }));
+
 });

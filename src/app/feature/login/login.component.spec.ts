@@ -36,7 +36,7 @@ class StorageMockService {
 }
 
 class MockLoginService{
-  public authenticate (data ){return data;}
+  public authenticate (data ){return true;}
 }
 @Directive({
   selector: 'app-login-form'
@@ -75,24 +75,10 @@ describe('LoginComponent', () => {
     
       fixture.detectChanges();
     });
+
     
   }));
 
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(LoginComponent);
-
-  //   component = fixture.componentInstance;
-    
-  //   fixture.detectChanges();
-  // });
-
-  
-
-  // it(`should have as title 'false'`, async(() => {
-  //   const fixture = TestBed.createComponent(LoginComponent);
-  //   const app = fixture.debugElement.componentInstance;
-  //   expect(app.isLoggedin).toEqual(false);
-  // }));
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -103,24 +89,9 @@ describe('LoginComponent', () => {
 
   it('Should Authenticate',()=>{expect(component.authenticate).toBeTruthy();});
 
-  // it('Should Authenticate the user "true"',()=>{
-  //   expect(component.authenticate(false)).toBeTruthy();
-  // });
-  // it(`should issue a request`,
-  //   // 1. declare as async test since the HttpClient works with Observables
-  //   async(
-  //     // 2. inject HttpClient and HttpTestingController into the test
-  //     inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
-  //       // 3. send a simple request
-  //       http.get('/foo/bar').subscribe();
+  it('Pass  Autenticate',()=>{
+    expect(component.authenticate({username:'admin',password:'admin'})).toBe(undefined);
+  });
 
-  //       // 4. HttpTestingController supersedes `MockBackend` from the "old" Http package
-  //       // here two, it's significantly less boilerplate code needed to verify an expected request
-  //       backend.expectOne({
-  //         url: '/foo/bar',
-  //         method: 'GET'
-  //       });
-  //     })
-  //   )
-  // );
+  
 });

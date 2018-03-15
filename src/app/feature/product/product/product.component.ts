@@ -8,7 +8,7 @@ import { ProductService } from './product.service'
 })
 export class ProductComponent implements OnInit {
 
-  private userDetail: any = [];
+  public userDetail: any = [];
 
   constructor(private productService: ProductService) { }
 
@@ -20,7 +20,6 @@ export class ProductComponent implements OnInit {
   initializeUserData() {
     this.productService.setUserDetails().subscribe(data => {
       this.userDetail = data;
-      console.log(data);
     });
   }
 

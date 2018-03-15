@@ -13,27 +13,22 @@ describe('StorageService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should be call getObject', inject([StorageService], (service: StorageService) => {
-    expect(service.getObject).toBeTruthy();
+  it('should be call setString', inject([StorageService], (service: StorageService) => {
+    expect(service.setString("test1","value")).toBe(undefined);
   }));
+ 
 
   it('should be call getString', inject([StorageService], (service: StorageService) => {
-    expect(service.getString).toBeTruthy();
+    expect(service.getString("test1")).toBe("value");
   }));
-
-  it('should be call setObject', inject([StorageService], (service: StorageService) => {
-    expect(service.setObject).toBeTruthy();
-  }));
-
-  it('should be call setString', inject([StorageService], (service: StorageService) => {
-    expect(service.setString).toBeTruthy();
-  }));
-
-  it('should be call clear', inject([StorageService], (service: StorageService) => {
-    expect(service.clear).toBeTruthy();
-  }));
+ 
 
   it('should be call delete', inject([StorageService], (service: StorageService) => {
-    expect(service.delete).toBeTruthy();
+    expect(service.delete("test")).toBe(undefined);
   }));
+  
+  it('should be call clear', inject([StorageService], (service: StorageService) => {
+    expect(service.clear()).toBe(undefined);
+  }));
+
 });

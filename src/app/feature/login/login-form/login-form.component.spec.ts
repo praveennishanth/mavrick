@@ -9,9 +9,10 @@ import { FormBuilder } from '@angular/forms';
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
   let fixture: ComponentFixture<LoginFormComponent>;
+  let spy:any;
  
 
-  beforeEach(async(() => {
+  beforeEach(async(() => {    
     TestBed.configureTestingModule({
       imports:[
         FormsModule,
@@ -42,7 +43,7 @@ describe('LoginFormComponent', () => {
   }));
 
   it ('should call the onSubmit method', async(()=>{
-    expect(component.onSubmit).toBeTruthy();
+    expect(component.onSubmit()).toBe(undefined);
   }));
 
   it(`form should be invalid`, async(() => {
@@ -58,5 +59,16 @@ describe('LoginFormComponent', () => {
     expect(component.loginForm.valid).toBeTruthy();
   }));
 
+  it(`onValueChanged should be invalid`, async(() => {
+    spy = spyOn(component,"loginForm").and.returnValue(undefined);
+    expect(component.onValueChanged()).Any;
+  }));
+
+  it(`onValueChanged should be valid`, async(() => {
+    // expect(component.loginForm.invalid).toBeFalsy();
+    component.loginForm.controls['username'].setValue('asd@asd.com');
+    component.loginForm.controls['password'].setValue('aada');
+    expect(component.onValueChanged()).Any;
+  }));
   
 });

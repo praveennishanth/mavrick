@@ -8,7 +8,7 @@ import { Router } from '@angular/router'
 export class AppComponent {
   title = 'Mavrick';
 
-  private router: any;
+  public router: any;
   constructor(private _router:Router){
     this.router=_router;
     // console.log(this.router.url)

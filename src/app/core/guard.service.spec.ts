@@ -4,6 +4,7 @@ import { GuardService } from './guard.service';
 import { StorageService } from './storage.service'
 
 describe('GuardService', () => {
+  let spy:any;
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [GuardService,StorageService]
@@ -15,10 +16,17 @@ describe('GuardService', () => {
   }));
 
   it('Should call canActivate method', inject([GuardService], (service: GuardService) => {
-    expect(service.canActivate).toBeTruthy();
+    spy= spyOn(service,'isLoggedIn').and.returnValue(true);
+    expect(service.canActivate()).toBe(true);
+  }));
+
+  it('Should call canActivate method', inject([GuardService], (service: GuardService) => {
+    spy= spyOn(service,'isLoggedIn').and.returnValue(false);
+    expect(service.canActivate()).toBe(false);
   }));
   
   it('Should call isLoggedIn method', inject([GuardService], (service: GuardService) => {
-    expect(service.isLoggedIn).toBeTruthy();
+    expect(service.isLoggedIn()).Any;
   }));
+
 });
